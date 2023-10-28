@@ -11,11 +11,11 @@ const PER_PAGE = 9;
 
 const EventList = () => {
   const { data, error } = useData();
-  const [type, setType] = useState();
+  const [type, setType] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
-    (!type
-      ? data?.events
+    (type !== null
+      ? data?.events.filter((event) => type === event.type && event)
       : data?.events) || []
   ).filter((event, index) => {
     if (
