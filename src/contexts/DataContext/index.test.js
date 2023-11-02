@@ -16,6 +16,7 @@ describe("When a data context is created", () => {
     const dataDisplayed = await screen.findByText("ok");
     expect(dataDisplayed).toBeInTheDocument();
   });
+
   describe("and the events call failed", () => {
     it("the error is dispatched", async () => {
       window.console.error = jest.fn();
@@ -34,6 +35,7 @@ describe("When a data context is created", () => {
       expect(dataDisplayed).toBeInTheDocument();
     });
   });
+  
   it("api.loadData", () => {
     window.console.error = jest.fn();
     global.fetch = jest.fn().mockResolvedValue(() =>

@@ -47,6 +47,7 @@ describe("When Events is created", () => {
     );
     await screen.findByText("avril");
   });
+
   describe("and an error occured", () => {
     it("an error message is displayed", async () => {
       api.loadData = jest.fn().mockRejectedValue();
@@ -58,6 +59,7 @@ describe("When Events is created", () => {
       expect(await screen.findByText("An error occured")).toBeInTheDocument();
     });
   });
+  
   describe("and we select a category", () => {
     it.only("an filtered list is displayed", async () => {
       api.loadData = jest.fn().mockReturnValue(data);

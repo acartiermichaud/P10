@@ -9,6 +9,7 @@ describe("When a select is created", () => {
     expect(selectElement).toBeInTheDocument();
     expect(selectDefault).toBeInTheDocument();
   });
+
   it("a collapse action button is displayed", () => {
     render(<Select selection={["value1", "value2"]} />);
     const collapseButtonElement = screen.getByTestId("collapse-button-testid");
@@ -41,6 +42,7 @@ describe("When a select is created", () => {
       expect(choice1).toBeInTheDocument();
       expect(choice2).toBeInTheDocument();
     });
+    
     describe("and a click is triggered on a choice item", () => {
       it("a onChange callback is called", () => {
         const onChange = jest.fn();

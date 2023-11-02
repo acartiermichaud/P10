@@ -37,8 +37,8 @@ describe("When a page is created", () => {
 
   it("a list a people is displayed", () => {
     render(<Home />)
-    const peopleCard = screen.getAllByTestId("peopleCard")
-    expect(peopleCard[0]).toBeInTheDocument()
+    const peopleCardsNb = screen.getAllByTestId("peopleCard").length
+    expect(peopleCardsNb).toBe(6)
   })
 
   it("a footer is displayed", () => {
@@ -49,8 +49,7 @@ describe("When a page is created", () => {
 
   it("an event card, with the last event, is displayed", () => {
     render(<Home />)
-    const eventCards = screen.getAllByTestId("card-testid");
-    const lastEventCard = eventCards[eventCards.length-1]
-    expect(lastEventCard.label.toBe("boom"))
+    const lastEventCard = screen.getByText("boom")
+    expect(lastEventCard).toBeInTheDocument()
   })
 });

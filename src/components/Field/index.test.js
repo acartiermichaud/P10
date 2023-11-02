@@ -8,6 +8,7 @@ describe("When a field is created", () => {
     expect(fieldElement).toBeInTheDocument();
     expect(fieldElement.name).toEqual("field-name");
   });
+  
   it("a placeholder is set on the field", () => {
     render(<Field placeholder="field-placeholder" name="test" />);
     const fieldElement = screen.getByTestId("field-testid");
