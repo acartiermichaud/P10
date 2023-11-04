@@ -51,5 +51,8 @@ describe("When a page is created", () => {
     render(<Home />)
     const lastEventCard = screen.getByText("boom")
     expect(lastEventCard).toBeInTheDocument()
+    expect(lastEventCard.imageSrc).not.toBeNull()
+    expect(lastEventCard.title).not.toBeNull()
+    expect(lastEventCard.date).not.toBeNull()
   })
 });
